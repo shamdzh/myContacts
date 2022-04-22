@@ -5,7 +5,7 @@ import Contact from "./components/Contact";
 function App() {
    return (
       <>
-        <h1>App.tsx</h1>
+        <Contact />
       </>
    );
 }

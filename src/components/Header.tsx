@@ -1,6 +1,8 @@
 import React from 'react'
 
-type Props = {}
+type Props = {
+  
+}
 
 const Header = (props: Props) => {
   return (

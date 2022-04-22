@@ -7,7 +7,7 @@ export const fetchUsers = () => {
     try {
       dispatch({ type: UserActionTypes.FETCH_USERS });
       const response = await axios.get(
-        "https://jsonplaceholder.typicode.com/users"
+        "http://localhost:3001/posts"
       );
       setTimeout(() => {
         dispatch({
