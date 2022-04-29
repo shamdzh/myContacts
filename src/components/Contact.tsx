@@ -2,7 +2,7 @@ import React from "react";
 import { useActions } from "../hooks/useActions";
 import { useTypedSelector } from "../hooks/useTypedSelector";
 
-const Contact = () => {
+const Contact: React.FC = () => {
   const myState = useTypedSelector((state) => state);
   const { fetchUsers, addUser } = useActions();
 
