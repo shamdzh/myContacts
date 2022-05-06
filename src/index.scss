@@ -12,22 +12,13 @@ code {
       monospace;
 }
 
-.form-container {
-   height: 100vh;
+.cards {
+   width: 80%;
+   margin: 0 auto;
    display: flex;
-   align-items: center;
-}
-
-.form-signin {
-   width: 100%;
-   max-width: 450px;
-   padding: 15px;
-   margin: auto;
-   text-align: center;
-
-   .form-floating input {
-      margin-bottom: 10px;
-   }
+   justify-content: center;
+   flex-wrap: wrap;
+   padding-top: 50px;
 }
 
 .card {
@@ -36,6 +27,7 @@ code {
    align-items: center;
    justify-content: center;
    border: none;
+   margin: 5px;
    
    .card__inner {
       padding: 20px;

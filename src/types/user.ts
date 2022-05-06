@@ -1,3 +1,10 @@
+export interface UserProps {
+  id: number;
+  author: string;
+  title: string;
+}
+
+
 export interface UserState {
   users: any;
   loading: boolean;
