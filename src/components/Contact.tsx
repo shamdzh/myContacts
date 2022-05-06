@@ -2,7 +2,12 @@ import React from "react";
 import { useActions } from "../hooks/useActions";
 import { useTypedSelector } from "../hooks/useTypedSelector";
 
-const Contact: React.FC = () => {
+
+interface ContactProps {
+  user: any;
+}
+
+const Contact: React.FC<ContactProps> = ({user}) => {
   const myState = useTypedSelector((state) => state);
   const { fetchUsers, addUser } = useActions();
 
@@ -20,7 +25,7 @@ const Contact: React.FC = () => {
         <div className="card__img">
           <img src={""} alt="" />
         </div>
-        <div className="card__name">{}</div>
+        <div className="card__name">{user.author}</div>
         <div
           className="card__email"
           onClick={(e) => {

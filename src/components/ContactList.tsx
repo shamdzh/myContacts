@@ -1,11 +1,28 @@
-import React from 'react'
+import React, { useEffect } from "react";
+import { useActions } from "../hooks/useActions";
+import { useTypedSelector } from "../hooks/useTypedSelector";
+import Contact from "./Contact";
 
-type Props = {}
+const ContactList: React.FC = () => {
+  const { users } = useTypedSelector((state) => state.user);
+  const { fetchUsers, addUser } = useActions();
 
-const ContactList = (props: Props) => {
+  useEffect(() => {
+    fetchUsers();
+  }, []);
+
   return (
-    <div>ContactList</div>
-  )
-}
+    <>
 
-export default ContactList
+      
+
+      <div>
+        {users.map((user: any) => (
+          <Contact user={user}/>
+        ))}
+      </div>
+    </>
+  );
+};
+
+export default ContactList;
