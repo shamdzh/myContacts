@@ -1,55 +1,147 @@
 body {
-   margin: 0;
-   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
-      "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
-      "Helvetica Neue", sans-serif;
-   -webkit-font-smoothing: antialiased;
-   -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-      monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
 }
 
-.cards {
-   width: 80%;
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding:30px 0 10px 0;
+
+  .logo img {
+    display: block;
+    width: 70px;
+    height: 70px;
+  }
+  
+  h1 {
+     margin-top: 10px;
+     font-size: 1.4rem;
+     font-weight: 400;
+     color: #333;
+
+     span {
+        font-style: italic
+     };
+  }
+}
+
+
+.addBtn {
+   margin-bottom: 40px;
+}
+
+.addBtn button {
+   display: block;
+   padding: 4px 30px;
    margin: 0 auto;
-   display: flex;
-   justify-content: center;
-   flex-wrap: wrap;
-   padding-top: 50px;
-}
+   color: #fff;
+   background-color: rgb(83, 133, 183);
+   font-weight: 400;
 
-.card {
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   justify-content: center;
-   border: none;
-   margin: 5px;
-   
-   .card__inner {
-      padding: 20px;
-      width: 400px;
-      border: 1px solid #333;
-      text-align: center;
-   }
-
-   .card__img {
-      padding-bottom: 10px;
-      
-      img {
-         display: block;
-         margin: 0 auto;
-         width: auto;
-         height: 100px;
-      }
-   }
-
-   .card__name {
-      font-size: 1.2rem;
-      color: #333;
-      font-weight: 500;
+   &:hover {
+      background-color: rgb(63, 118, 173);
+      color: #fff;
    }
 }
+
+
+.contacts {
+  width: 700px;
+  margin: 0 auto;
+  padding-bottom: 50px;
+}
+
+.form__title {
+  text-align: center;
+  padding: 10px;
+}
+
+.form__inner {
+  width: 700px;
+  margin: 0 auto;
+  padding-bottom: 30px;
+  display: flex;
+  justify-content: center;
+
+  & > .col {
+    flex: 0 0 45%;
+  }
+
+  .form__btn {
+    width: 60%;
+    font-size: 1.13em;
+    margin-top: 18px;
+  }
+}
+
+.search {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  width: 700px;
+  padding-bottom: 20px;
+
+  &__inner {
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+  &__input {
+    font-size: 0.85rem;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #333;
+    padding-left: 28px;
+    transition: all 0.18s;
+
+    &::placeholder {
+       font-size: 0.85rem;
+       transition: all 0.18s;
+    }
+
+    &:focus{
+      outline: none;
+      border-bottom: 2px solid rgb(83, 133, 183);
+      color: rgb(83, 133, 183);
+
+    }
+
+    &:focus::placeholder {
+      font-size: 0.95rem;
+    }
+  }
+
+  &__icon {
+    font-size: 0.85rem;
+    transition: all 0.18s;
+    position: absolute;
+    padding: 5px;
+    left: 0;
+    top: 0;
+  }
+
+  .search__input:focus {
+     font-size: 1rem;
+  }
+
+  .search__input:focus + .search__icon {
+   font-size: 1.05rem;
+   color: rgb(83, 133, 183);
+ }
+}
+

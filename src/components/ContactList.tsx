@@ -5,9 +5,6 @@ import { UserProps } from "../types/user";
 import Contact from "./Contact";
 
 const ContactList: React.FC = () => {
-
-
-
   const { users } = useTypedSelector((state) => state.user);
   const { fetchUsers, addUser } = useActions();
 
@@ -17,13 +14,14 @@ const ContactList: React.FC = () => {
 
   return (
     <>
-
-      
-
-      <div className="cards">
-        {users.map((user:UserProps) => (
-          <Contact user={user}/>
-        ))}
+      <div className="contacts">
+        <div className="contacts__list list-group">
+          {users.map((user: UserProps) => (
+            <a className="list-group-item list-group-item-action">
+              <Contact user={user} />
+            </a>
+          ))}
+        </div>
       </div>
     </>
   );
