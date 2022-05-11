@@ -8,16 +8,18 @@ const ContactList: React.FC = () => {
   const { users } = useTypedSelector((state) => state.user);
   const { fetchUsers, addUser } = useActions();
 
+  console.log(users)
+
   useEffect(() => {
     fetchUsers();
   }, []);
-
+ 
   return (
     <>
       <div className="contacts">
         <div className="contacts__list list-group">
           {users.map((user: UserProps) => (
-            <a className="list-group-item list-group-item-action">
+            <a key={user.id} className="list-group-item list-group-item-action">
               <Contact user={user} />
             </a>
           ))}

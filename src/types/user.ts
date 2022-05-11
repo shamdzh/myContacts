@@ -1,7 +1,7 @@
 export interface UserProps {
-  id: number;
-  author: string;
-  title: string;
+  id?: number;
+  name: string;
+  number: string;
 }
 
 

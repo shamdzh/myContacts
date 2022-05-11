@@ -1,79 +1,39 @@
 {
-  "posts": [
+  "contacts": [
     {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
+      "name": "Sham Dzh",
+      "number": 89635830105,
+      "id": 1
     },
     {
-      "title": "MyRequest",
-      "author": "ShamDzh",
-      "id": 2
-    },
-    {
-      "title": "MyRequest",
-      "author": "ShamDzh",
-      "id": 3
-    },
-    {
-      "title": "MyRequest",
-      "author": "ShamDzh",
-      "id": 4
-    },
-    {
-      "title": "MyRequest",
-      "author": "ShamDzh",
-      "id": 5
-    },
-    {
-      "title": "MyRequest",
-      "author": "ShamDzh",
-      "id": 6
-    },
-    {
-      "title": "MyRequest",
-      "author": "ShamDzh",
-      "id": 7
-    },
-    {
-      "title": "MyRequest",
-      "author": "ShamDzh",
-      "id": 8
-    },
-    {
-      "title": "MyRequest",
-      "author": "ShamDzh",
-      "id": 9
-    },
-    {
-      "title": "MyRequest",
-      "author": "ShamDzh",
-      "id": 10
-    },
-    {
-      "title": "MyRequest",
-      "author": "ShamDzh",
-      "id": 11
-    },
-    {
-      "title": "MyRequest",
-      "author": "ShamDzh",
+      "name": "Zukhra Ts",
+      "number": 89635830105,
       "id": 12
     },
     {
-      "title": "MyRequest",
-      "author": "ShamDzh",
+      "name": "Dzhanhotov",
+      "number": "89285830105",
       "id": 13
-    }
-  ],
-  "comments": [
+    },
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "name": "Ibragim",
+      "number": "79949334343",
+      "id": 14
+    },
+    {
+      "name": "Ibra",
+      "number": "21334123123",
+      "id": 15
+    },
+    {
+      "name": "Test",
+      "number": "24234324223",
+      "id": 16
+    },
+    {
+      "name": "sdfas",
+      "number": "zxcvzcx",
+      "id": 17
     }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }

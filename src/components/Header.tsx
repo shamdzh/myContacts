@@ -11,7 +11,8 @@ const Header = (props: Props) => {
       <div className="logo">
         <img src={require("../assets/images/contacts.png")} alt="" />
       </div>
-      <h1>Contacts Service <span>by Sham Dzh</span></h1>
+      <h1 className='header__title'>Contacts Service</h1>
+      <div className="header__subtitle">by Shamil' Dzhanhotov</div>
     </div>
   )
 }

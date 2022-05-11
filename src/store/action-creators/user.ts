@@ -5,9 +5,11 @@ import { UserAction, UserActionTypes, UserProps } from "./../../types/user";
 export const fetchUsers = () => {
   return async (dispatch: Dispatch<UserAction>) => {
     try {
+      console.log("fetchUsers")
       dispatch({ type: UserActionTypes.FETCH_USERS });
-      const response = await axios.get<UserProps>("http://localhost:3001/posts");
+      const response = await axios.get<UserProps>("http://localhost:3001/contacts");
       setTimeout(() => {
+        console.log('FETCH_SUCCESS')
         dispatch({
           type: UserActionTypes.FETCH_USERS_SUCCESS,
           payload: response.data,
@@ -22,17 +24,15 @@ export const fetchUsers = () => {
   };
 };
 
-export const addUser = () => {
+export const addUser = (payload: UserProps) => {
   return async (dispatch: Dispatch<UserAction>) => {
     try {
       dispatch({ type: UserActionTypes.FETCH_USERS });
-      const response = await axios.post("http://localhost:3001/posts", {
-        title: "MyRequest",
-        author: "ShamDzh",
+      const response = await axios.post("http://localhost:3001/contacts", {
+        ...payload
       });
-
-
       setTimeout(() => {
+        console.log('ADD_SUCCESS')
         dispatch({
           type: UserActionTypes.ADD_USER_SUCCESS,
           payload: response.data,

@@ -17,45 +17,45 @@ code {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding:30px 0 10px 0;
+  padding: 30px 0 20px 0;
 
   .logo img {
     display: block;
     width: 70px;
     height: 70px;
   }
-  
-  h1 {
-     margin-top: 10px;
-     font-size: 1.4rem;
-     font-weight: 400;
-     color: #333;
 
-     span {
-        font-style: italic
-     };
+  &__title {
+    margin-top: 10px;
+    margin-bottom: 0;
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: #333;
+  }
+
+  &__subtitle {
+    font-size: 0.8rem;
+    font-style: italic;
   }
 }
 
-
 .addBtn {
-   margin-bottom: 40px;
+  margin-bottom: 30px;
 }
 
 .addBtn button {
-   display: block;
-   padding: 4px 30px;
-   margin: 0 auto;
-   color: #fff;
-   background-color: rgb(83, 133, 183);
-   font-weight: 400;
+  display: block;
+  padding: 4px 30px;
+  margin: 0 auto;
+  color: #fff;
+  background-color: rgb(83, 133, 183);
+  font-weight: 400;
 
-   &:hover {
-      background-color: rgb(63, 118, 173);
-      color: #fff;
-   }
+  &:hover {
+    background-color: rgb(63, 118, 173);
+    color: #fff;
+  }
 }
-
 
 .contacts {
   width: 700px;
@@ -63,15 +63,15 @@ code {
   padding-bottom: 50px;
 }
 
-.form__title {
-  text-align: center;
-  padding: 10px;
+.form {
+  width: 700px;
+  margin: 0 auto;
+  padding: 25px;
+  border: 2px dashed rgb(188, 188, 188);
 }
 
 .form__inner {
-  width: 700px;
   margin: 0 auto;
-  padding-bottom: 30px;
   display: flex;
   justify-content: center;
 
@@ -79,10 +79,39 @@ code {
     flex: 0 0 45%;
   }
 
+  .form_btn-group {
+    width: 79%;
+    display: flex;
+    justify-content: space-around;
+  }
+
+
+
   .form__btn {
-    width: 60%;
-    font-size: 1.13em;
-    margin-top: 18px;
+    margin-top: 20px;
+  }
+
+  .form__btn button {
+    width: 220px;
+    display: block;
+    color: #fff;
+    background-color: rgb(83, 133, 183);
+    font-weight: 400;
+
+    &:hover {
+      background-color: rgb(63, 118, 173);
+      color: #fff;
+    }
+  }
+
+  .btn-cancel button {
+    background-color: rgb(200, 50, 50);
+    font-weight: 400;
+
+    &:hover {
+      background-color: rgb(180, 44, 44);
+      color: #fff;
+    }
   }
 }
 
@@ -91,7 +120,7 @@ code {
   display: flex;
   justify-content: center;
   width: 700px;
-  padding-bottom: 20px;
+  padding: 20px 0;
 
   &__inner {
     width: 60%;
@@ -110,15 +139,14 @@ code {
     transition: all 0.18s;
 
     &::placeholder {
-       font-size: 0.85rem;
-       transition: all 0.18s;
+      font-size: 0.85rem;
+      transition: all 0.18s;
     }
 
-    &:focus{
+    &:focus {
       outline: none;
       border-bottom: 2px solid rgb(83, 133, 183);
       color: rgb(83, 133, 183);
-
     }
 
     &:focus::placeholder {
@@ -136,12 +164,11 @@ code {
   }
 
   .search__input:focus {
-     font-size: 1rem;
+    font-size: 1rem;
   }
 
   .search__input:focus + .search__icon {
-   font-size: 1.05rem;
-   color: rgb(83, 133, 183);
- }
+    font-size: 1.05rem;
+    color: rgb(83, 133, 183);
+  }
 }
-

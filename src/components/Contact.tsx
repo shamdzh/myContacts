@@ -12,11 +12,8 @@ const Contact: React.FC<Props> = ({user}) => {
   const myState = useTypedSelector((state) => state);
   const { fetchUsers, addUser } = useActions();
 
-  console.log("Текущее состояние state: ", myState);
-
-
   return (
-    <div>{user.author}</div>
+    <div>{user.name + " " + user.number}</div>
   );
 };
 
