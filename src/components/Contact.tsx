@@ -10,10 +10,16 @@ interface Props {
 
 const Contact: React.FC<Props> = ({user}) => {
   const myState = useTypedSelector((state) => state);
-  const { fetchUsers, addUser } = useActions();
+  const { fetchUsers, addUser, removeUser } = useActions();
 
   return (
-    <div>{user.name + " " + user.number}</div>
+    <div className="contact">
+      {user.name + " " + user.number}
+      <div className="deleteBtn" onClick={() => {
+        console.log('delete')
+        removeUser(user.id!)
+      }}><i className="fa-solid fa-xmark"></i></div>
+    </div>
   );
 };
 

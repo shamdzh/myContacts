@@ -10,6 +10,7 @@ export const showForm = () => {
 
 export const hideForm = () => {
     return (dispatch: Dispatch<FormAction>) => {
+        console.log('hideForm')
         dispatch({type: FormActionTypes.HIDE_FORM, payload: false})
     }
 }

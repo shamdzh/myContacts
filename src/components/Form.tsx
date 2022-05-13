@@ -41,7 +41,12 @@ const Form = ({ visible }: Props) => {
           </div>
           <div className="form_btn-group">
             <div className="form__btn">
-              <button className="btn btn-md" onClick={() => addUser({name: name, number: number})}>
+              <button
+                className="btn btn-md"
+                onClick={() => {
+                  addUser({ name: name, number: number });
+                }}
+              >
                 Сохранить данные
               </button>
             </div>

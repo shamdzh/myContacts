@@ -63,6 +63,24 @@ code {
   padding-bottom: 50px;
 }
 
+.contact {
+  position: relative;
+}
+
+.deleteBtn {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+}
+
+.list-group-item:hover {
+  .deleteBtn {
+    display: inline-block;
+  }
+}
+
 .form {
   width: 700px;
   margin: 0 auto;

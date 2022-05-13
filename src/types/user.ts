@@ -19,6 +19,9 @@ export enum UserActionTypes {
   FETCH_USERS = "FETCH_USERS",
   FETCH_USERS_SUCCESS = "FETCH_USERS_SUCCESS",
   FETCH_USERS_ERROR = "FETCH_USERS_ERROR",
+  REMOVE_USER = "REMOVE_USER",
+  REMOVE_USER_SUCCESS = "REMOVE_USER_SUCCESS",
+  REMOVE_USER_ERROR = "REMOVE_USER_ERROR",
 }
 
 interface FetchUsersAction {
@@ -49,10 +52,28 @@ interface AddUserErrorAction {
   type: UserActionTypes.ADD_USER_ERROR;
 }
 
+interface RemoveUserAction {
+  type: UserActionTypes.REMOVE_USER
+}
+
+interface RemoveUserSuccessAction {
+  type: UserActionTypes.REMOVE_USER_SUCCESS,
+  payload: any
+}
+
+
+interface RemoveUserErrorAction {
+  payload: string | null;
+  type: UserActionTypes.REMOVE_USER_ERROR;
+}
+
 export type UserAction =
   | FetchUsersAction
   | FetchUsersSuccessAction
   | FetchUsersErrorAction
   | AddUserAction
   | AddUserSuccessAction
-  | AddUserErrorAction;
+  | AddUserErrorAction
+  | RemoveUserAction
+  | RemoveUserSuccessAction
+  | RemoveUserErrorAction
