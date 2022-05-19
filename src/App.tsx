@@ -1,13 +1,14 @@
 import React from "react";
-import Auth from "./components/Auth";
 import Contact from "./components/Contact";
+import Auth from "./pages/Auth";
 import { Main } from "./pages/Main";
 
 
 function App() {
    return (
       <>
-        <Main />
+        <Auth />
+        {/* <Main /> */}
       </>
    );
 }
