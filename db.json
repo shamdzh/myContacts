@@ -1,46 +1,12 @@
 {
   "users": [
-    {
-      "email": "olivier1@mail.com",
-      "password": "$2a$10$krNv20D8RQygEA6wxLQyBeFXtDHd49nO7OQDaaQZmIPMn4zW4vNee",
-      "id": 1
-    },
-    {
-      "email": "olivier@mail.com",
-      "password": "$2a$10$5ftCJTKnNaGdsF6BwBHv0uSQp4f2AqEiWfhbHiIAiA9yKhszhy9lW",
-      "id": 2
-    },
-    {
-      "email": "olivier3@mail.com",
-      "password": "$2a$10$9LoO/VjVf5wIEyPHblvYs.Lvsc0NjuRP4Oy9o6c8GyNHL/0SDeNiu",
-      "id": 3
-    },
-    {
-      "email": "olivier4@mail.com",
-      "password": "$2a$10$Eob0XLGx6foOsUn.s4J.F.XagqUAcwMYOJg3VJQNwcPONvnlHUopq",
-      "id": 4
-    },
-    {
-      "email": "olivier7@mail.com",
-      "password": "$2a$10$RsqfEMF9FZhQEvSBCzQIyeM/3nu9yVVEUni3rFGthYACDxT5g5uzS",
-      "id": 5
-    },
-    {
-      "email": "shdzhanhotov@mail.ru",
-      "password": "$2a$10$7oBhfK3.mZmxC1T91YxKEuLXuz6D7Kapx8Wo6mlR7RIj9ow4GsvtS",
-      "id": 6
-    }
+    
   ],
   "contacts": [
     {
       "name": "Sham Dzh",
       "number": 89635830105,
       "id": 1
-    },
-    {
-      "name": "Dzhanhotov",
-      "number": "89285830105",
-      "id": 3
     }
   ]
 }

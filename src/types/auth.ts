@@ -1,50 +1,54 @@
-export interface AuthFormState {
-  authToken: object;
+export interface AuthState {
+  login: boolean
   loading: boolean;
   error: string | null;
 }
 
-export enum AuthFormActionTypes {
+export enum AuthActionTypes {
   SIGN_UP = "SIGN_UP",
   SIGN_UP_SUCCESS = "SIGN_UP_SUCCESS",
   SIGN_UP_ERROR = "SIGN_UP_ERROR",
   SIGN_IN = "SIGN_IN",
   SIGN_IN_SUCCESS = "SIGN_IN_SUCCESS",
   SIGN_IN_ERROR = "SIGN_IN_ERROR",
+  SIGN_OUT = "SIGN_OUT"
 }
 
 interface SignUpAction {
-  type: AuthFormActionTypes.SIGN_UP;
+  type: AuthActionTypes.SIGN_UP;
 }
 
 interface SignUpSuccessAction {
-  type: AuthFormActionTypes.SIGN_UP_SUCCESS;
-  payload: object;
+  type: AuthActionTypes.SIGN_UP_SUCCESS;
 }
 
 interface SignUpErrorAction {
-  type: AuthFormActionTypes.SIGN_UP_ERROR;
+  type: AuthActionTypes.SIGN_UP_ERROR;
   payload: string;
 }
 
 interface SignInAction {
-  type: AuthFormActionTypes.SIGN_IN;
+  type: AuthActionTypes.SIGN_IN;
 }
 
 interface SignInSuccessAction {
-  type: AuthFormActionTypes.SIGN_IN_SUCCESS;
-  payload: object;
+  type: AuthActionTypes.SIGN_IN_SUCCESS;
 }
 
 interface SignInSuccessError {
-  type: AuthFormActionTypes.SIGN_IN_ERROR;
+  type: AuthActionTypes.SIGN_IN_ERROR;
   payload: string;
 }
 
-export type AuthFormAction =
+interface SignOut {
+  type: AuthActionTypes.SIGN_OUT;
+}
+
+export type AuthAction =
   | SignUpAction
   | SignUpSuccessAction
   | SignUpErrorAction
   | SignInAction
   | SignInSuccessAction
-  | SignInSuccessError;
+  | SignInSuccessError
+  | SignOut;

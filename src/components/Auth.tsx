@@ -11,27 +11,40 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { signUp } from "../store/action-creators/authForm";
+import { signUp } from "../store/action-creators/auth";
 import { fetchUsers } from "../store/action-creators/user";
 import { useActions } from "../hooks/useActions";
+import { useNavigate } from "react-router-dom";
+import { useTypedSelector } from "../hooks/useTypedSelector";
+
 
 const theme = createTheme();
 
-export const AuthForm: React.FC = () => {
+export const Auth: React.FC = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const {signUp, signIn, setLogin} = useActions();
+  const navigate = useNavigate();
+  const { login } = useTypedSelector((state) => state.authForm);
 
-  const {signUp} = useActions();
 
   useEffect(() => {
     console.log("Email: ", email);
     console.log("Password: ", password);  
-  }, []);
+    if(JSON.parse(localStorage.getItem('user')!) == null) {
+      console.log('Вы не авторизованы')
+    } else setLogin();
+  }, [])
+
+  useEffect(() => {
+    if(login) navigate('/main')
+  }, [login])
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    
+    signUp(email, password)
     console.log(email, password);
-    signUp(email, password);
   };
 
   return (
@@ -91,9 +104,6 @@ export const AuthForm: React.FC = () => {
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
-              onClick={() => {
-
-              }}
             >
               Sign In
             </Button>
