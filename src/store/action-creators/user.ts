@@ -45,7 +45,7 @@ export const fetchUsers = () => {
 };
 
 export const addUser = (payload: UserProps) => {
-  return async (dispatch: Dispatch<UserAction | FormAction>) => {
+  return async (dispatch: Dispatch<UserAction | FormAction | AuthAction>) => {
     try {
       dispatch({ type: UserActionTypes.FETCH_USERS });
       const response = await axios.post(
@@ -65,18 +65,30 @@ export const addUser = (payload: UserProps) => {
           type: UserActionTypes.ADD_USER_SUCCESS,
           payload: response.data,
         });
+        dispatch({type: FormActionTypes.SET_NAME, payload: ''})
+        dispatch({type: FormActionTypes.SET_PHONE, payload: ''})
       }, 500);
-    } catch (e) {
-      dispatch({
-        type: UserActionTypes.ADD_USER_ERROR,
-        payload: "Произошла ошибка при добавлении контакта",
-      });
+
+      
+    } catch (e: any) {
+      console.log(e.response.status);
+
+      if (e.response.status == 401) {
+        localStorage.removeItem("user");
+        dispatch({
+          type: UserActionTypes.ADD_USER_ERROR,
+          payload: "Ошибка 401. Не выполнена авторизация",
+        });
+        dispatch({
+          type: AuthActionTypes.SIGN_OUT,
+        });
+      }
     }
   };
 };
 
 export const removeUser = (id: number) => {
-  return async (dispatch: Dispatch<UserAction | FormAction>) => {
+  return async (dispatch: Dispatch<UserAction | FormAction | AuthAction>) => {
     try {
       dispatch({ type: UserActionTypes.REMOVE_USER });
       const response = await axios.delete(
@@ -97,11 +109,19 @@ export const removeUser = (id: number) => {
           payload: id,
         });
       }, 500);
-    } catch (e) {
-      dispatch({
-        type: UserActionTypes.REMOVE_USER_ERROR,
-        payload: "Произошла ошибка при удалении контакта",
-      });
+    } catch (e: any) {
+      console.log(e.response.status);
+
+      if (e.response.status == 401) {
+        localStorage.removeItem("user");
+        dispatch({
+          type: UserActionTypes.REMOVE_USER_ERROR,
+          payload: "Ошибка 401. Не выполнена авторизация",
+        });
+        dispatch({
+          type: AuthActionTypes.SIGN_OUT,
+        });
+      }
     }
   };
 };

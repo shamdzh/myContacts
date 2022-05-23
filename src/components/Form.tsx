@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { useActions } from "../hooks/useActions";
+import { useTypedSelector } from "../hooks/useTypedSelector";
 import { FormState } from "../types/form";
 import Add from "./Add";
 
 type Props = FormState;
 
 const Form = ({ visible }: Props) => {
-  const { hideForm, addUser } = useActions();
-  const [name, setName] = useState("");
-  const [number, setNumber] = useState("");
+  const { hideForm, addUser,  } = useActions();
+  const { name, phone} = useTypedSelector(state => state.form)
 
   console.log(visible);
 
@@ -44,7 +44,7 @@ const Form = ({ visible }: Props) => {
               <button
                 className="btn btn-md"
                 onClick={() => {
-                  addUser({ name: name, number: number });
+                  addUser({ name: name, number: number })
                 }}
               >
                 Сохранить данные
