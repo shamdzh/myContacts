@@ -1,12 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useActions } from "../hooks/useActions";
+import { useTypedSelector } from "../hooks/useTypedSelector";
 
-type Props = {};
+const Search: React.FC = () => {
+  const { text } = useTypedSelector((state) => state.search);
+  const { setText } = useActions();
 
-const Search = (props: Props) => {
+  useEffect(() => {
+    console.log(text);
+  });
+
   return (
     <div className="search">
       <div className="search__inner">
-        <input type="text" className="search__input" placeholder="Введите значение для поиска"/>
+        <input
+          type="text"
+          className="search__input"
+          placeholder="Введите значение для поиска"
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+        />
         <i className="search__icon fa-solid fa-magnifying-glass"></i>
       </div>
     </div>

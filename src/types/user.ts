@@ -6,7 +6,7 @@ export interface UserProps {
 
 
 export interface UserState {
-  users: any;
+  users: UserProps[];
   loading: boolean;
   error: null | string;
 }

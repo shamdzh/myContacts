@@ -1,12 +1,31 @@
 {
   "users": [
-    
+    {
+      "email": "shdzhanh234otov@mail.ru",
+      "password": "$2a$10$7/gRnn7Z19ElFN7zrD7Zru5tXBkFG4eGqG6wxLx2CrTMpsk3XD7me",
+      "id": 1
+    },
+    {
+      "email": "shdzhanhotoffv@mail.ru",
+      "password": "$2a$10$VtkZBine1PTiiQLn7pIFiOkcRPcriEkPc3mwgsFNnC8HF5sHqVTt6",
+      "id": 2
+    },
+    {
+      "email": "shdzhanhotov@mail.ru",
+      "password": "$2a$10$neL38m/QoXT.gltAyG1yzO6WgqTe7XtJHvPnGD/eQWlNI4WALQ/P2",
+      "id": 3
+    }
   ],
   "contacts": [
     {
+      "name": "Zukhra",
+      "number": "73245123123",
+      "id": 2
+    },
+    {
       "name": "Sham Dzh",
-      "number": 89635830105,
-      "id": 1
+      "number": "74524534525",
+      "id": 3
     }
   ]
 }

@@ -1,4 +1,4 @@
-import { AuthActionTypes, AuthAction } from './../../types/auth';
+import { AuthActionTypes, AuthAction } from "./../../types/auth";
 import { FormAction } from "./../../types/form";
 import axios from "axios";
 import { Dispatch } from "redux";
@@ -6,17 +6,18 @@ import { FormActionTypes } from "../../types/form";
 import { UserAction, UserActionTypes, UserProps } from "./../../types/user";
 import { hideForm } from "./form";
 
-
-
 export const fetchUsers = () => {
   return async (dispatch: Dispatch<UserAction | AuthAction>) => {
     try {
       console.log("fetchUsers");
       dispatch({ type: UserActionTypes.FETCH_USERS });
       const response = await axios.get<UserProps>(
-        "http://localhost:3001/contacts", {
+        "http://localhost:3001/contacts",
+        {
           headers: {
-            Authorization: `Bearer ${JSON.parse(localStorage.getItem('user')!).accessToken}`,
+            Authorization: `Bearer ${
+              JSON.parse(localStorage.getItem("user")!).accessToken
+            }`,
           },
         }
       );
@@ -26,17 +27,19 @@ export const fetchUsers = () => {
           payload: response.data,
         });
       }, 500);
-    } catch (e:any) {
-      if (e.includes('401')) {
+    } catch (e: any) {
+      console.log(e.response.status);
+
+      if (e.response.status == 401) {
+        localStorage.removeItem("user");
         dispatch({
           type: UserActionTypes.FETCH_USERS_ERROR,
           payload: "Ошибка 401. Не выполнена авторизация",
         });
         dispatch({
-          type: AuthActionTypes.SIGN_OUT
-        })
+          type: AuthActionTypes.SIGN_OUT,
+        });
       }
-
     }
   };
 };
@@ -50,7 +53,9 @@ export const addUser = (payload: UserProps) => {
         { ...payload },
         {
           headers: {
-            Authorization: `Bearer ${JSON.parse(localStorage.getItem('user')!).accessToken}`,
+            Authorization: `Bearer ${
+              JSON.parse(localStorage.getItem("user")!).accessToken
+            }`,
           },
         }
       );
@@ -75,7 +80,14 @@ export const removeUser = (id: number) => {
     try {
       dispatch({ type: UserActionTypes.REMOVE_USER });
       const response = await axios.delete(
-        `http://localhost:3001/contacts/${id}`
+        `http://localhost:3001/660/contacts/${id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${
+              JSON.parse(localStorage.getItem("user")!).accessToken
+            }`,
+          },
+        }
       );
       setTimeout(() => {
         console.log("REMOVE_SUCCESS");

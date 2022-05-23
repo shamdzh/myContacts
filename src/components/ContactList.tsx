@@ -6,18 +6,25 @@ import Contact from "./Contact";
 
 const ContactList: React.FC = () => {
   const { users } = useTypedSelector((state) => state.user);
-  const { fetchUsers, addUser } = useActions();
+  const { text } = useTypedSelector((state) => state.search);
+  const { fetchUsers} = useActions();
   console.log(users);
 
   useEffect(() => {
     fetchUsers();
   }, []);
 
+  const filteredContacts = users.filter((user: UserProps) => {
+    return user.name.toLowerCase().includes(text.toLowerCase())
+  })
+
+
+
   return (
     <>
       <div className="contacts">
         <div className="contacts__list list-group">
-          {users.map((user: UserProps) => (
+          {filteredContacts.map((user: UserProps) => (
             <a key={user.id} className="list-group-item list-group-item-action">
               <Contact user={user} />
             </a>

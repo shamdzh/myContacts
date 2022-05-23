@@ -17,36 +17,35 @@ import { useActions } from "../hooks/useActions";
 import { useNavigate } from "react-router-dom";
 import { useTypedSelector } from "../hooks/useTypedSelector";
 
-
 const theme = createTheme();
 
 export const Auth: React.FC = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const {signUp, signIn, setLogin} = useActions();
+  const [myBtn, setMyBtn] = useState(false);
+  const { signUp, signIn, setLogin } = useActions();
   const navigate = useNavigate();
   const { login } = useTypedSelector((state) => state.authForm);
 
-
   useEffect(() => {
-    console.log("Email: ", email);
-    console.log("Password: ", password);  
-    if(JSON.parse(localStorage.getItem('user')!) == null) {
-      console.log('Вы не авторизованы')
+    if (JSON.parse(localStorage.getItem("user")!) == null) {
+      console.log("Вы не авторизованы");
     } else setLogin();
-  }, [])
+  }, []);
 
   useEffect(() => {
-    if(login) navigate('/main')
-  }, [login])
+    if (login) navigate("/main");
+  }, [login]);
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
+    myBtn ? signUp(email, password) : signIn(email, password);
     
-    signUp(email, password)
     console.log(email, password);
   };
 
+  
   return (
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
@@ -63,7 +62,7 @@ export const Auth: React.FC = () => {
             <LockOutlinedIcon />
           </Avatar> */}
           <Typography component="h1" variant="h5">
-            Sign in
+            Contacts Service
           </Typography>
           <Box
             component="form"
@@ -99,24 +98,37 @@ export const Auth: React.FC = () => {
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
             />
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              sx={{ mt: 3, mb: 2 }}
-            >
-              Sign In
-            </Button>
-            <Grid container>
-              <Grid item xs>
-                <Link href="#" variant="body2">
-                  Forgot password?
-                </Link>
-              </Grid>
+
+            {myBtn ? (
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                sx={{ mt: 3, mb: 2 }}
+              >
+                Sign Up
+              </Button>
+            ) : (
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                sx={{ mt: 3, mb: 2 }}
+              >
+                Sign In
+              </Button>
+            )}
+
+            <Grid container alignItems="center" justifyContent="center">
               <Grid item>
-                <Link href="#" variant="body2">
-                  {"Don't have an account? Sign Up"}
-                </Link>
+                <Button
+                  variant="text"
+                  onClick={() => {
+                    setMyBtn(true);
+                  }}
+                >
+                  Don't have an account? Sign Up
+                </Button>
               </Grid>
             </Grid>
           </Box>
@@ -129,7 +141,7 @@ export const Auth: React.FC = () => {
         >
           {"Copyright © "}
           <Link color="inherit" href="https://mui.com/">
-            Your Website
+            Sham Dzh
           </Link>{" "}
           {new Date().getFullYear()}
           {"."}
