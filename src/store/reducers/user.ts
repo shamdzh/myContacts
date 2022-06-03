@@ -1,4 +1,4 @@
-import { UserProps } from './../../types/user';
+import { UserProps } from "./../../types/user";
 import { UserAction, UserActionTypes, UserState } from "../../types/user";
 
 const initialState: UserState = {
@@ -28,10 +28,31 @@ export const userReducer = (
       };
     case UserActionTypes.ADD_USER_ERROR:
       return { loading: false, error: action.payload, users: state.users };
+    case UserActionTypes.EDIT_USER:
+      return { loading: true, error: null, users: state.users };
+    case UserActionTypes.EDIT_USER_SUCCESS:
+      return {
+        loading: false,
+        error: null,
+        users: state.users.map(user => {
+          if(user.id == action.payload.id) return action.payload; 
+          else {
+              return user
+          }
+      })
+      };
+    case UserActionTypes.EDIT_USER_ERROR:
+      return { loading: false, error: action.payload, users: state.users };
     case UserActionTypes.REMOVE_USER:
       return { loading: true, error: null, users: state.users };
     case UserActionTypes.REMOVE_USER_SUCCESS:
-      return { loading: false, error: null, users: state.users.filter((user:UserProps) => user.id !== action.payload)};
+      return {
+        loading: false,
+        error: null,
+        users: state.users.filter(
+          (user: UserProps) => user.id !== action.payload
+        ),
+      };
     case UserActionTypes.REMOVE_USER:
       return { loading: true, error: null, users: state.users };
     default:

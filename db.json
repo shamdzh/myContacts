@@ -18,24 +18,19 @@
   ],
   "contacts": [
     {
-      "name": "Zukhra",
-      "number": "73245123123",
-      "id": 2
+      "name": "Sham",
+      "number": "79635830105",
+      "id": 1
     },
     {
-      "name": "Sham Dzh",
-      "number": "74524534525",
+      "name": "Bekhan",
+      "number": "79635830105",
       "id": 3
     },
     {
-      "name": "Test",
-      "number": "123123",
+      "name": "Ibragim",
+      "number": "89633423323",
       "id": 4
-    },
-    {
-      "name": "asdfa",
-      "number": "123",
-      "id": 5
     }
   ]
 }

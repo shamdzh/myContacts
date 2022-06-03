@@ -7,8 +7,8 @@ import Add from "./Add";
 type Props = FormState;
 
 const Form = ({ visible }: Props) => {
-  const { hideForm, addUser,  } = useActions();
-  const { name, phone} = useTypedSelector(state => state.form)
+  const { hideForm, addUser, setName, setPhone, editUser } = useActions();
+  const { name, phone, edited, editId} = useTypedSelector(state => state.form)
 
   console.log(visible);
 
@@ -33,9 +33,9 @@ const Form = ({ visible }: Props) => {
               maxLength={11}
               className="form-control"
               placeholder="Phone number"
-              value={number}
+              value={phone}
               onChange={(e) => {
-                setNumber(e.target.value);
+                setPhone(e.target.value);
               }}
             />
           </div>
@@ -44,7 +44,7 @@ const Form = ({ visible }: Props) => {
               <button
                 className="btn btn-md"
                 onClick={() => {
-                  addUser({ name: name, number: number })
+                 edited ? editUser({id: editId, name: name!, number: phone!}) : addUser({ name: name!, number: phone! })  
                 }}
               >
                 Сохранить данные

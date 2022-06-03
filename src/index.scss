@@ -28,14 +28,15 @@ code {
   &__title {
     margin-top: 10px;
     margin-bottom: 0;
-    font-size: 1.4rem;
+    font-size: 1.8rem;
     font-weight: 400;
     color: #333;
   }
 
   &__subtitle {
-    font-size: 0.8rem;
+    font-size: 1rem;
     font-style: italic;
+    margin-top: 5px;
   }
 }
 
@@ -45,15 +46,19 @@ code {
 
 .addBtn button {
   display: block;
-  padding: 4px 30px;
+  padding: 5px 60px;
   margin: 0 auto;
   color: #fff;
-  background-color: rgb(83, 133, 183);
+  background-color: #1976d2;
   font-weight: 400;
+  font-size: 1rem;
 
   &:hover {
-    background-color: rgb(63, 118, 173);
+    background-color: #196ccc;
     color: #fff;
+    -webkit-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+    box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
   }
 }
 
@@ -65,18 +70,33 @@ code {
 
 .contact {
   position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__name {
+    font-weight: 500;
+  }
+
+  &__number {
+
+  }
 }
 
-.deleteBtn {
+.btnGroup {
+
+}
+
+.deleteBtn,
+.editeBtn {
   display: none;
-  position: absolute;
-  top: 0;
-  right: 0;
+  margin-left: 10px;
   cursor: pointer;
 }
 
 .list-group-item:hover {
-  .deleteBtn {
+  .deleteBtn,
+  .editeBtn {
     display: inline-block;
   }
 }
@@ -103,8 +123,6 @@ code {
     justify-content: space-around;
   }
 
-
-
   .form__btn {
     margin-top: 20px;
   }
@@ -113,12 +131,15 @@ code {
     width: 220px;
     display: block;
     color: #fff;
-    background-color: rgb(83, 133, 183);
+    background-color: #1976d2;
     font-weight: 400;
 
     &:hover {
-      background-color: rgb(63, 118, 173);
+      background-color: #196ccc;
       color: #fff;
+      -webkit-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+      -moz-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+      box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
     }
   }
 
@@ -149,7 +170,7 @@ code {
   }
 
   &__input {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     width: 100%;
     border: none;
     border-bottom: 1px solid #333;
@@ -157,14 +178,15 @@ code {
     transition: all 0.18s;
 
     &::placeholder {
-      font-size: 0.85rem;
+      font-size: 0.9rem;
       transition: all 0.18s;
     }
 
     &:focus {
       outline: none;
       border-bottom: 2px solid rgb(83, 133, 183);
-      color: rgb(83, 133, 183);
+      font-weight: 500;
+      color: #1976d2
     }
 
     &:focus::placeholder {

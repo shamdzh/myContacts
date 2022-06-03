@@ -16,6 +16,9 @@ export enum UserActionTypes {
   ADD_USER = "ADD_USER",
   ADD_USER_SUCCESS = "ADD_USER_SUCCESS",
   ADD_USER_ERROR = "ADD_USER_ERROR",
+  EDIT_USER = "EDIT_USER",
+  EDIT_USER_SUCCESS = "EDIT_USER_SUCCESS",
+  EDIT_USER_ERROR = "EDIT_USER_ERROR",
   FETCH_USERS = "FETCH_USERS",
   FETCH_USERS_SUCCESS = "FETCH_USERS_SUCCESS",
   FETCH_USERS_ERROR = "FETCH_USERS_ERROR",
@@ -52,6 +55,20 @@ interface AddUserErrorAction {
   type: UserActionTypes.ADD_USER_ERROR;
 }
 
+interface EditUserAction {
+  type: UserActionTypes.EDIT_USER;
+}
+
+interface EditUserSuccessAction {
+  payload: UserProps;
+  type: UserActionTypes.EDIT_USER_SUCCESS;
+}
+
+interface EditUserErrorAction {
+  payload: string | null;
+  type: UserActionTypes.EDIT_USER_ERROR;
+}
+
 interface RemoveUserAction {
   type: UserActionTypes.REMOVE_USER
 }
@@ -71,6 +88,9 @@ export type UserAction =
   | FetchUsersAction
   | FetchUsersSuccessAction
   | FetchUsersErrorAction
+  | EditUserAction
+  | EditUserSuccessAction
+  | EditUserErrorAction
   | AddUserAction
   | AddUserSuccessAction
   | AddUserErrorAction

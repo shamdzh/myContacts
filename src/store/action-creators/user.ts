@@ -87,6 +87,50 @@ export const addUser = (payload: UserProps) => {
   };
 };
 
+
+export const editUser = (user: UserProps) => {
+  return async (dispatch: Dispatch<UserAction | FormAction | AuthAction>) => {
+    try {
+      dispatch({ type: UserActionTypes.EDIT_USER });
+      const response = await axios.put(
+        `http://localhost:3001/660/contacts/${user.id}`,
+        { name: user.name, number: user.number },
+        {
+          headers: {
+            Authorization: `Bearer ${
+              JSON.parse(localStorage.getItem("user")!).accessToken
+            }`,
+          },
+        }
+      );
+      setTimeout(() => {
+        dispatch({ type: FormActionTypes.HIDE_FORM, payload: false });
+        dispatch({
+          type: UserActionTypes.EDIT_USER_SUCCESS,
+          payload: response.data,
+        });
+        dispatch({type: FormActionTypes.SET_NAME, payload: ''})
+        dispatch({type: FormActionTypes.SET_PHONE, payload: ''})
+      }, 500);
+
+      
+    } catch (e: any) {
+      console.log(e.response.status);
+
+      if (e.response.status == 401) {
+        localStorage.removeItem("user");
+        dispatch({
+          type: UserActionTypes.ADD_USER_ERROR,
+          payload: "Ошибка 401. Не выполнена авторизация",
+        });
+        dispatch({
+          type: AuthActionTypes.SIGN_OUT,
+        });
+      }
+    }
+  };
+};
+
 export const removeUser = (id: number) => {
   return async (dispatch: Dispatch<UserAction | FormAction | AuthAction>) => {
     try {
