@@ -1,35 +1,40 @@
 {
   "users": [
     {
-      "email": "shdzhanh234otov@mail.ru",
-      "password": "$2a$10$7/gRnn7Z19ElFN7zrD7Zru5tXBkFG4eGqG6wxLx2CrTMpsk3XD7me",
+      "email": "test@mail.ru",
+      "password": "$2a$10$ppYuKLfhiS82/Udg5R7x6.woH7rvzNr9dUv6sN..z5ucHjCrJFxli",
       "id": 1
     },
     {
-      "email": "shdzhanhotoffv@mail.ru",
-      "password": "$2a$10$VtkZBine1PTiiQLn7pIFiOkcRPcriEkPc3mwgsFNnC8HF5sHqVTt6",
+      "email": "shamdzh@mail.ru",
+      "password": "$2a$10$MRv.P6HUm89GRuNfEDD4oeKLtVikcvHo6B5jmLUM98L6ipQqdtkC6",
       "id": 2
     },
     {
       "email": "shdzhanhotov@mail.ru",
-      "password": "$2a$10$neL38m/QoXT.gltAyG1yzO6WgqTe7XtJHvPnGD/eQWlNI4WALQ/P2",
+      "password": "$2a$10$hffhhfnZAHcONV.zBFR1seBxiOJTr0HsybWh/aCeHDxXYWDdMbB4q",
       "id": 3
     }
   ],
   "contacts": [
     {
-      "name": "Sham",
-      "number": "79635830105",
+      "name": "sdf",
+      "number": "123",
       "id": 1
     },
     {
-      "name": "Bekhan",
+      "name": "Sham",
       "number": "79635830105",
+      "id": 2
+    },
+    {
+      "name": "test",
+      "number": "123",
       "id": 3
     },
     {
-      "name": "Ibragim",
-      "number": "89633423323",
+      "name": "jnjkn",
+      "number": "675",
       "id": 4
     }
   ]

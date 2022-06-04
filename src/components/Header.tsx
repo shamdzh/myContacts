@@ -1,11 +1,9 @@
 import React from 'react'
+import { useActions } from '../hooks/useActions';
 
 
-type Props = {
-  
-}
+const Header = () => {
 
-const Header = (props: Props) => {
   return (
     <div className='header'>
       <div className="logo">
@@ -13,6 +11,7 @@ const Header = (props: Props) => {
       </div>
       <h1 className='header__title'>Contacts Service</h1>
       <div className="header__subtitle">by Shamil' Dzhanhotov</div>
+      
     </div>
   )
 }

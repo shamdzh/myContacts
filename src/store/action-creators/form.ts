@@ -16,6 +16,7 @@ export const hideForm = () => {
     dispatch({ type: FormActionTypes.HIDE_FORM, payload: false });
     dispatch({ type: FormActionTypes.SET_NAME, payload: "" });
     dispatch({ type: FormActionTypes.SET_PHONE, payload: "" });
+    dispatch({ type: FormActionTypes.EDIT_FORM, payload: false });
   };
 };
 

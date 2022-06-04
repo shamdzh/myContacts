@@ -63,3 +63,13 @@ export const setLogin = () => {
     });
   };
 };
+
+export const signOut = () => {
+  return async (dispatch: Dispatch<AuthAction>) => {
+    localStorage.removeItem('user')
+    dispatch({
+      type: AuthActionTypes.SIGN_OUT,
+    });
+  };
+};
+

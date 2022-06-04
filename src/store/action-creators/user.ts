@@ -47,6 +47,7 @@ export const fetchUsers = () => {
 export const addUser = (payload: UserProps) => {
   return async (dispatch: Dispatch<UserAction | FormAction | AuthAction>) => {
     try {
+      console.log('addUser')
       dispatch({ type: UserActionTypes.FETCH_USERS });
       const response = await axios.post(
         "http://localhost:3001/contacts",
@@ -91,6 +92,7 @@ export const addUser = (payload: UserProps) => {
 export const editUser = (user: UserProps) => {
   return async (dispatch: Dispatch<UserAction | FormAction | AuthAction>) => {
     try {
+      console.log('editUser')
       dispatch({ type: UserActionTypes.EDIT_USER });
       const response = await axios.put(
         `http://localhost:3001/660/contacts/${user.id}`,
@@ -109,6 +111,7 @@ export const editUser = (user: UserProps) => {
           type: UserActionTypes.EDIT_USER_SUCCESS,
           payload: response.data,
         });
+        dispatch({type: FormActionTypes.EDIT_FORM, payload: false });
         dispatch({type: FormActionTypes.SET_NAME, payload: ''})
         dispatch({type: FormActionTypes.SET_PHONE, payload: ''})
       }, 500);

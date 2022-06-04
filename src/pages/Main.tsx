@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Add from "../components/Add";
 import ContactList from "../components/ContactList";
+import Footer from "../components/Footer";
 import Form from "../components/Form";
 import Header from "../components/Header";
 import Search from "../components/Search";
@@ -32,6 +33,8 @@ export const Main: React.FC = () => {
       <Search />
 
       <ContactList />
+
+      <Footer />
     </>
   );
 };
